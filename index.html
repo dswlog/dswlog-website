@@ -63,8 +63,17 @@ section{scroll-margin-top:84px}
 .topbar{background:var(--brand-deep);color:#fff;font-size:14px}
 .topbar .wrap{display:flex;flex-wrap:wrap;gap:4px 22px;justify-content:space-between;padding-top:8px;padding-bottom:8px}
 .topbar a{color:#fff;text-decoration:none;font-weight:700}
-.lang-switch a{margin-right:12px;color:#bcd9ea}
-.lang-switch a[aria-current="true"]{color:#fff;text-decoration:underline}
+.lang-menu{position:relative}
+.lang-btn{display:flex;align-items:center;gap:6px;cursor:pointer;list-style:none;color:#fff;font-weight:700}
+.lang-btn::-webkit-details-marker{display:none}
+.lang-btn .flag{width:19px;height:14px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.4)}
+.lang-caret{font-size:10px;color:#bcd9ea}
+.lang-list{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border-radius:8px;box-shadow:0 10px 30px rgba(3,34,54,.28);padding:6px;min-width:176px;z-index:80}
+.topbar .lang-list a{display:flex;align-items:center;gap:8px;color:#17394f;font-weight:600;padding:7px 9px;border-radius:6px;margin:0}
+.lang-list a:hover{background:#eef5fa}
+.lang-list a .flag{width:19px;height:14px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.lang-list a[aria-current="true"]{background:#e8f2f9}
+html[dir="rtl"] .lang-list{left:auto;right:0}
 .topbar a:hover{text-decoration:underline}
 header.site{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
 .h-members{display:flex;gap:18px;align-items:flex-start;border-left:1px solid #dbe5ec;padding-left:18px;margin-right:auto}
@@ -222,7 +231,7 @@ footer .f-bottom{border-top:1px solid rgba(255,255,255,.35);margin-top:26px;padd
 
 <div class="topbar">
   <div class="wrap">
-    <span class="lang-switch" aria-label="Language"><a href="/" aria-current="true">English</a><a href="/es/">Español</a><a href="/pt/">Português</a><a href="/fr/">Français</a><a href="/ar/">العربية</a></span>
+    <details class="lang-menu"><summary class="lang-btn"><svg class="flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#012169"/><path d="M0 0L20 14M20 0L0 14" stroke="#fff" stroke-width="2.8"/><path d="M0 0L20 14M20 0L0 14" stroke="#C8102E" stroke-width="1.1"/><path d="M10 0V14M0 7H20" stroke="#fff" stroke-width="4.6"/><path d="M10 0V14M0 7H20" stroke="#C8102E" stroke-width="2.6"/></svg><svg class="flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><g fill="#B22234"><rect width="20" height="2"/><rect y="4" width="20" height="2"/><rect y="8" width="20" height="2"/><rect y="12" width="20" height="2"/></g><rect width="9.5" height="7.5" fill="#3C3B6E"/><g fill="#fff"><circle cx="1.7" cy="1.7" r=".85"/><circle cx="4.7" cy="1.7" r=".85"/><circle cx="7.7" cy="1.7" r=".85"/><circle cx="1.7" cy="3.8" r=".85"/><circle cx="4.7" cy="3.8" r=".85"/><circle cx="7.7" cy="3.8" r=".85"/><circle cx="1.7" cy="5.9" r=".85"/><circle cx="4.7" cy="5.9" r=".85"/><circle cx="7.7" cy="5.9" r=".85"/></g></svg><span>English</span><span class="lang-caret">▾</span></summary><div class="lang-list"><a href="/" aria-current="true"><svg class="flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#012169"/><path d="M0 0L20 14M20 0L0 14" stroke="#fff" stroke-width="2.8"/><path d="M0 0L20 14M20 0L0 14" stroke="#C8102E" stroke-width="1.1"/><path d="M10 0V14M0 7H20" stroke="#fff" stroke-width="4.6"/><path d="M10 0V14M0 7H20" stroke="#C8102E" stroke-width="2.6"/></svg><svg class="flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><g fill="#B22234"><rect width="20" height="2"/><rect y="4" width="20" height="2"/><rect y="8" width="20" height="2"/><rect y="12" width="20" height="2"/></g><rect width="9.5" height="7.5" fill="#3C3B6E"/><g fill="#fff"><circle cx="1.7" cy="1.7" r=".85"/><circle cx="4.7" cy="1.7" r=".85"/><circle cx="7.7" cy="1.7" r=".85"/><circle cx="1.7" cy="3.8" r=".85"/><circle cx="4.7" cy="3.8" r=".85"/><circle cx="7.7" cy="3.8" r=".85"/><circle cx="1.7" cy="5.9" r=".85"/><circle cx="4.7" cy="5.9" r=".85"/><circle cx="7.7" cy="5.9" r=".85"/></g></svg>English</a><a href="/es/"><svg class="flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#AA151B"/><rect y="3.5" width="20" height="7" fill="#F1BF00"/></svg>Español</a><a href="/pt/"><svg class="flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="8" height="14" fill="#046A38"/><rect x="8" width="12" height="14" fill="#DA291C"/><circle cx="8" cy="7" r="2.8" fill="#FFE900" stroke="#000" stroke-width=".4"/></svg>Português</a><a href="/fr/"><svg class="flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="6.7" height="14" fill="#0055A4"/><rect x="6.7" width="6.6" height="14" fill="#fff"/><rect x="13.3" width="6.7" height="14" fill="#EF4135"/></svg>Français</a><a href="/ar/"><svg class="flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="4.7" fill="#00732F"/><rect y="4.7" width="20" height="4.6" fill="#fff"/><rect y="9.3" width="20" height="4.7" fill="#000"/><rect width="6.5" height="14" fill="#FF0000"/></svg>العربية</a></div></details>
     <span>Email: <a href="mailto:info@dswlog.com">info@dswlog.com</a> &nbsp;·&nbsp; Tel: <a style="text-decoration:none" href="tel:+865922630828">+86 592 2630828</a> / <a style="text-decoration:none" href="tel:+865922631056">+86 592 2631056</a> &nbsp;·&nbsp; WhatsApp: <a href="https://wa.me/8615980996806?text=Hello%20DS%20Worldwide%20Logistics%2C%20I%20would%20like%20to%20ask%20about%20a%20shipment%20from%20China." target="_blank" rel="noopener">+86 159 8099 6806</a></span>
   </div>
 </div>
@@ -291,7 +300,7 @@ footer .f-bottom{border-top:1px solid rgba(255,255,255,.35);margin-top:26px;padd
           <dl>
             <dt>Company name</dt>
             <dd>DS Worldwide Logistics (Xiamen) Co., Ltd.</dd>
-            <dt>Head office</dt>
+            <dt>Home base</dt>
             <dd>Unit 511, Building A, Free Trade Financial Center, No. 7 Yunan 4th Road, Xiamen Area (Bonded Zone), China (Fujian) Pilot Free Trade Zone, Xiamen 361006, China</dd>
             <dt>Email</dt>
             <dd><a href="mailto:info@dswlog.com">info@dswlog.com</a></dd>
@@ -667,7 +676,7 @@ footer .f-bottom{border-top:1px solid rgba(255,255,255,.35);margin-top:26px;padd
         <tbody>
           <tr><th>Email</th><td><a href="mailto:info@dswlog.com">info@dswlog.com</a> — general contact, bookings and shipment status. Or use the <a href="#quote">quote form</a> above.</td></tr>
           <tr><th>Rate enquiries</th><td><a href="mailto:quotes@dswlog.com">quotes@dswlog.com</a> — for rate enquiries.</td></tr>
-          <tr><th>Phone</th><td><a style="text-decoration:none" href="tel:+865922630828">+86 592 2630828</a> / <a style="text-decoration:none" href="tel:+865922631056">+86 592 2631056</a> — head office, Xiamen. China time (UTC+8), office hours.</td></tr>
+          <tr><th>Phone</th><td><a style="text-decoration:none" href="tel:+865922630828">+86 592 2630828</a> / <a style="text-decoration:none" href="tel:+865922631056">+86 592 2631056</a> — home base, Xiamen. China time (UTC+8), office hours.</td></tr>
           <tr><th>WhatsApp</th><td><a href="https://wa.me/8615980996806?text=Hello%20DS%20Worldwide%20Logistics%2C%20I%20would%20like%20to%20ask%20about%20a%20shipment%20from%20China." target="_blank" rel="noopener">+86 159 8099 6806</a> — <a href="https://wa.me/8615980996806?text=Hello%20DS%20Worldwide%20Logistics%2C%20I%20would%20like%20to%20ask%20about%20a%20shipment%20from%20China." target="_blank" rel="noopener">Chat on WhatsApp</a></td></tr>
           <tr><th>Address</th><td>DS Worldwide Logistics (Xiamen) Co., Ltd.<br />Unit 511, Building A, Free Trade Financial Center, No. 7 Yunan 4th Road, Xiamen Area (Bonded Zone), China (Fujian) Pilot Free Trade Zone, Xiamen 361006, China</td></tr>
         </tbody>
